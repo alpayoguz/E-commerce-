@@ -34,7 +34,7 @@ const Slider = () => {
            {sliderItems.map((item, index)=> {
              return(
                <>
-                <div className="slide w-[1536px] h-[562px] shrink-0 flex " key={index}>
+                <div className="slide w-[1536px] h-[562px] shrink-0 flex " key={item.id}>
                     <div className="image-container w-1/2 h-full ">
                        <img className="h-full w-full " src={item.img} />
                     </div>

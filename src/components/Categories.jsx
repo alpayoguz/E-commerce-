@@ -6,11 +6,11 @@ import Category from './Category'
 
 const Categories = () => {
   return (
-    <div className='flex w-[90vw] h-[80vh] mx-auto p-10 '>
+    <div className='categories-container flex w-[90vw] h-[80vh] mx-auto p-10 '>
         {categories.map((item)=>{
             return(
                 <>
-                 <Category item={item}/>
+                 <Category key={item.id} item={item}/>
                 </>
             )
         })}
