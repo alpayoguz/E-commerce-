@@ -26,7 +26,7 @@ export const sliderItems = [
     {
       id: 1,
       img: "Images/categories/shirt-style.jpg",
-      title: "SHIRT STYLE!",
+      title: "SHIRT STYLE",
     },
     {
       id: 2,
