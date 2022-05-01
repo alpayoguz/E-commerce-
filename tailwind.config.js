@@ -9,6 +9,9 @@ module.exports = {
         "banner-lounge": "#EEEEEE",
         "banner-autumn": "#E6E0D7"
       },
+      margin: {
+        'mml': '8px 8px 8px 0',
+      }
     },
   },
   plugins: [],

@@ -1,6 +1,8 @@
 import React from 'react'
 import { popularProducts } from '../constants/data'
 import Popular from './Popular'
+import { Link } from 'react-router-dom'
+
 
 const Populars = () => {
   return (
@@ -11,7 +13,7 @@ const Populars = () => {
                 {popularProducts.map((item)=>{
                     return(
                         <>
-                            <Popular item={item}/>
+                          <Popular item={item}/>   
                         </>
                     )
                 })}

@@ -1,0 +1,1 @@
+1)Herhangi bir ürüne tıklayınca ürünle ilgili sayfaya gidecek.
