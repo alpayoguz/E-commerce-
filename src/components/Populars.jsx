@@ -35,10 +35,8 @@ const Populars = () => {
 
   useEffect(()=>{
     if(filterObject.sort === "asc"){
-      console.log(filterObject);
       setFilteredProducts(prevVal => {return  [...prevVal].sort((a,b)=> {return a.price - b.price })})
     }else if (filterObject.sort === "desc"){
-      console.log(filterObject);
 
       setFilteredProducts(prevVal => {return  [...prevVal].sort((a,b)=> {return b.price - a.price })})
 
