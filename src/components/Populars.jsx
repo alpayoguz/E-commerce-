@@ -17,8 +17,12 @@ const Populars = () => {
         return products
     }else{
       return  products.filter(item => Object.entries(filterObject).every(([key, value]) =>{
-        console.log("item[key]", item[key].includes(value))
-        return  item[key].includes(value) || value ==="all" || item[key] === "all"
+        if(key === "gender" || key === "type"){
+           return  item[key].includes(value) || value ==="all" || item[key] === "all"
+        }else{
+          return true
+        }
+        
       } ))
     }
     
@@ -28,12 +32,25 @@ const Populars = () => {
     )
   },[filterObject])
 
+
+  useEffect(()=>{
+    if(filterObject.sort === "asc"){
+      console.log(filterObject);
+      setFilteredProducts(prevVal => {return  [...prevVal].sort((a,b)=> {return a.price - b.price })})
+    }else if (filterObject.sort === "desc"){
+      console.log(filterObject);
+
+      setFilteredProducts(prevVal => {return  [...prevVal].sort((a,b)=> {return b.price - a.price })})
+
+    }
+  }, [filterObject])
+
   return (
       <>
           <div className='products-container flex flex-col w-[90vw] h-[80vh] p-10 mx-auto'>
               <h1 className='text-3xl mb-4'>POPULARS</h1>
               <div className='flex flex-wrap'>
-                {filteredProducts.length >0 ?  filteredProducts.map((item)=>{
+                {filteredProducts.length > 0 ?  filteredProducts.map((item)=>{
                     return(
                         <>
                           <Popular item={item}/>   

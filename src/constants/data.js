@@ -48,7 +48,7 @@ export const sliderItems = [
       img:"Images/populars/tshirt-guitar.png",
       productDesc:"tshirt-guitar",
       productName:"Tshirt Guitar",
-      price:"$13.99",
+      price:13.99,
       gender:"all",
       type:"tshirt"
 
@@ -59,7 +59,7 @@ export const sliderItems = [
       img:"Images/populars/jacket.png",
       productDesc:"jacket-cream",
       productName:"Jacket Cream",
-      price:"$23.99",
+      price:23.99,
       gender:"m",
       type:"jacket"
 
@@ -72,7 +72,7 @@ export const sliderItems = [
       img:"Images/populars/shirt-hawai.png",
       productDesc:"shirt-hawai",
       productName:"Shirt Hawaii",
-      price:"$9.99",
+      price:9.99,
       gender:"m",
       type:"tshirt"
 
@@ -85,7 +85,7 @@ export const sliderItems = [
       img:"Images/populars/white-dress.png",
       productDesc:"dress-white",
       productName:"Dress White",
-      price:"$29.99",
+      price:29.99,
       gender:"w",
       type:"dress"
 
@@ -97,7 +97,7 @@ export const sliderItems = [
       img:"Images/populars/jacket-denim.jpg",
       productDesc:"jacket-denim",
       productName:"Jacket Man Denim",
-      price:"$19.99",
+      price:19.99,
       gender:"all",
       type:"jacket"
 
@@ -110,7 +110,7 @@ export const sliderItems = [
       img:"Images/populars/women-dress-3.jpg",
       productDesc:"dress-women-gray",
       productName:"Dress Woman Gray",
-      price:"$8.99",
+      price:8.99,
       gender:"w",
       type:"dress"
 
@@ -123,7 +123,7 @@ export const sliderItems = [
       img:"Images/populars/tshirt-penguin.jpg",
       productDesc:"Tshirt-Penguin",
       productName:"Tshirt Man Penguin",
-      price:"$5.99",
+      price:5.99,
       gender:"all",
       type:"tshirt"
 
@@ -136,7 +136,7 @@ export const sliderItems = [
       img:"Images/populars/women-dress-2.jpg",
       productDesc:"dress-women-blue",
       productName:"Dress Woman Blue",
-      price:"$49.99",
+      price:49.99,
       gender:"w",
       type:"dress"
 

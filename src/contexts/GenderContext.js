@@ -7,7 +7,8 @@ export const GenderProvider = (props) =>{
 
     const initialObject = {
         gender:"all",
-        type:"all"
+        type:"all",
+        sort:"asc"
     }
    const [filterObject, setFilterObject] = useState(initialObject)
  
