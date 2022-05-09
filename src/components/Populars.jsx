@@ -2,13 +2,13 @@ import React, { useContext, useState, useEffect } from 'react'
 import { popularProducts } from '../constants/data'
 import Popular from './Popular'
 import { Link } from 'react-router-dom'
-import { GenderContext } from '../contexts/GenderContext'
+import { FilterContext } from '../contexts/FilterContext'
 
 
 const Populars = () => {
   const [products, setProducts] = useState(popularProducts)
   const [filteredProducts, setFilteredProducts] = useState(products)
-  const {filterObject} = useContext(GenderContext)
+  const {filterObject} = useContext(FilterContext)
 
   useEffect(()=>{
 

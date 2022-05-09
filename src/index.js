@@ -3,16 +3,21 @@ import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProductProvider } from "./contexts/ProductContext";
 import Filters from "./components/Filters";
-import { GenderProvider } from "./contexts/GenderContext";
+import { FilterProvider } from "./contexts/FilterContext";
 import ProductList from "./pages/ProductList";
 import Cart from "./pages/Cart";
+import SignIn from "./pages/SignIn";
+import Signup from "./pages/SignUp";
+import { AuthProvider } from "./contexts/AuthContext";
 
 const root = createRoot(document.getElementById("root"));
 
 root.render(
   <ProductProvider>
-    <GenderProvider>
-       <Cart/>
-    </GenderProvider>
+    <FilterProvider>
+    <AuthProvider>
+      <App/>
+    </AuthProvider>
+    </FilterProvider>
   </ProductProvider>
 );

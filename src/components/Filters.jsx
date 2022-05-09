@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { GenderContext, GenderProvider } from '../contexts/GenderContext'
+import { FilterContext, FilterProvider } from '../contexts/FilterContext'
 
 const Filters = () => {
 
@@ -8,7 +8,7 @@ const Filters = () => {
         filterObject, 
         setFilterObject
     }
-     = useContext(GenderContext)
+     = useContext(FilterContext)
 
     function handleSelection(event){
 

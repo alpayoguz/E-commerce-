@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 
-export const GenderContext = createContext();
+export const FilterContext = createContext();
 
-export const GenderProvider = (props) =>{
+export const FilterProvider = (props) =>{
 
 
     const initialObject = {
@@ -18,5 +18,5 @@ export const GenderProvider = (props) =>{
       filterObject,
       setFilterObject
     }
-    return <GenderContext.Provider value={value}>{props.children}</GenderContext.Provider>
+    return <FilterContext.Provider value={value}>{props.children}</FilterContext.Provider>
 }

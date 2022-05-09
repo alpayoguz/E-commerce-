@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import Products from '../components/Populars'
 import Slider from '../components/Slider'
+import { useAuth } from '../contexts/AuthContext'
 
 const Home = () => {
   return (
