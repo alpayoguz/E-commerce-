@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 
-const Popular = ({ item }) => {
+const Product = ({ item }) => {
   const [iconOpacity, setIconOpacity] = useState(false);
   const { cartItems, setCartItems, onAdd } = useCart();
   const path = `/products/${item.id}`;
@@ -51,4 +51,4 @@ const Popular = ({ item }) => {
   );
 };
 
-export default Popular;
+export default Product;

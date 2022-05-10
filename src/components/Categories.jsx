@@ -6,7 +6,7 @@ import Category from './Category'
 
 const Categories = () => {
   return (
-    <div className='categories-container flex w-[90vw] h-[80vh] mx-auto p-10 '>
+    <div className='categories-container flex justify-center w-[90vw] h-[80vh] mx-auto p-10 '>
         {categories.map((item)=>{
             return(
                 <>

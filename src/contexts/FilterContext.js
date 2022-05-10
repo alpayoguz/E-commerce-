@@ -1,8 +1,15 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { popularProducts } from '../constants/data'
+
 
 export const FilterContext = createContext();
+export function useFilter(){
+  return useContext(FilterContext)
+}
 
 export const FilterProvider = (props) =>{
+  const [filteredProducts, setFilteredProducts] = useState(popularProducts)
+
 
 
     const initialObject = {
@@ -15,6 +22,8 @@ export const FilterProvider = (props) =>{
 
 
     const value = {
+      filteredProducts,
+      setFilteredProducts,
       filterObject,
       setFilterObject
     }

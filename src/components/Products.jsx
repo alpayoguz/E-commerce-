@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { popularProducts } from '../constants/data'
-import Popular from './Popular'
+import Product from './Product'
 import { Link } from 'react-router-dom'
-import { FilterContext } from '../contexts/FilterContext'
+import { FilterContext, useFilter } from '../contexts/FilterContext'
 
 
-const Populars = () => {
+const Products = ({productsData}) => {
   const [products, setProducts] = useState(popularProducts)
-  const [filteredProducts, setFilteredProducts] = useState(products)
   const {filterObject} = useContext(FilterContext)
+  const {filteredProducts, setFilteredProducts} = useFilter()
 
   useEffect(()=>{
 
@@ -37,9 +37,7 @@ const Populars = () => {
     if(filterObject.sort === "asc"){
       setFilteredProducts(prevVal => {return  [...prevVal].sort((a,b)=> {return a.price - b.price })})
     }else if (filterObject.sort === "desc"){
-
       setFilteredProducts(prevVal => {return  [...prevVal].sort((a,b)=> {return b.price - a.price })})
-
     }
   }, [filterObject])
 
@@ -48,10 +46,10 @@ const Populars = () => {
           <div className='products-container flex flex-col w-[90vw] h-[80vh] p-10 mx-auto'>
               <h1 className='text-3xl mb-4'>POPULARS</h1>
               <div className='flex flex-wrap'>
-                {filteredProducts.length > 0 ?  filteredProducts.map((item)=>{
+                {productsData.length > 0 ?  productsData.map((item)=>{
                     return(
                         <>
-                          <Popular item={item}/>   
+                          <Product item={item}/>   
                         </>
                     )
                 }) : <p>No item found</p>}
@@ -66,4 +64,4 @@ const Populars = () => {
   )
 }
 
-export default Populars
+export default Products

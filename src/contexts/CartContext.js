@@ -9,6 +9,8 @@ export function useCart(){
 export const CartProvider = ({children}) => {
 
     const [cartItems, setCartItems] = useState([])
+    const [hiddenAnnouncement, setHiddenAnnouncement] = useState(true)
+
     const itemsPrice = cartItems.reduce((a,c) => a + c.price * c.qty , 0)
     const  shippingPrice = itemsPrice > 100 ? 0 : 7.99 
     const cartLength = cartItems.reduce((a, b) => a + b.qty, 0)
@@ -56,7 +58,9 @@ export const CartProvider = ({children}) => {
         itemsPrice,
         shippingPrice,
         removeCompletely,
-        cartLength
+        cartLength,
+        hiddenAnnouncement,
+        setHiddenAnnouncement
     }
   return (
    <>

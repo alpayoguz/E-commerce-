@@ -18,7 +18,7 @@ root.render(
     <FilterProvider>
       <AuthProvider>
         <CartProvider>
-          <App />
+          <App/>
         </CartProvider>
       </AuthProvider>
     </FilterProvider>

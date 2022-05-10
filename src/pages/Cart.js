@@ -12,7 +12,7 @@ const Cart = () => {
 
   return (
     <>
-      <Announcement />
+    <Announcement/>
       <Navbar />
       {cartItems.length > 0 ? 
       (

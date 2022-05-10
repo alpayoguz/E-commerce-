@@ -1,17 +1,19 @@
 import React from 'react'
 import Announcement from '../components/Announcement'
 import Navbar from '../components/Navbar'
-import Populars from '../components/Populars'
+import Products from '../components/Products'
 import Filters from '../components/Filters'
+import { useFilter } from '../contexts/FilterContext'
 
 const ProductList = () => {
+   const {filteredProducts, setFilteredProducts} = useFilter()
   return (
      <>
      <div>
         <Announcement/>
         <Navbar/>
         <Filters/>
-        <Populars/>
+        <Products productsData={filteredProducts}/>
         
         
      </div>
