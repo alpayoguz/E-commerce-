@@ -9,15 +9,18 @@ import Cart from "./pages/Cart";
 import SignIn from "./pages/SignIn";
 import Signup from "./pages/SignUp";
 import { AuthProvider } from "./contexts/AuthContext";
+import { CartProvider } from "./contexts/CartContext";
 
 const root = createRoot(document.getElementById("root"));
 
 root.render(
   <ProductProvider>
     <FilterProvider>
-    <AuthProvider>
-      <App/>
-    </AuthProvider>
+      <AuthProvider>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </AuthProvider>
     </FilterProvider>
   </ProductProvider>
 );

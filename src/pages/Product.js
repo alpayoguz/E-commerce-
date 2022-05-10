@@ -6,11 +6,13 @@ import {MdFavoriteBorder} from "react-icons/md"
 import { useParams } from "react-router";
 import { useContext } from "react";
 import { ProductContext } from "../contexts/ProductContext";
+import { useCart } from "../contexts/CartContext";
 
 const Product = () => {
    const {id} = useParams();
    const {popularProducts} = useContext(ProductContext)
   const product = popularProducts.find(product => product.id === id)
+  const {onAdd} = useCart();
   return (
     <>
         <Announcement/>
@@ -54,7 +56,7 @@ const Product = () => {
           <div className="product__buttons flex w-full">
               <button className="product__buy w-full h-[40px] border hover:text-blue-500 hover:border-blue-500 rounded-md ">Buy</button>
             <div className="product__cart">
-                <BsCart2 className="w-[50px] h-[30px] text-gray-500 cursor-pointer hover:text-blue-500"/>
+                <BsCart2 onClick={()=> {onAdd(product)}} className="w-[50px] h-[30px] text-gray-500 cursor-pointer hover:text-blue-500"/>
             </div>
             <div className="product_fav">
                 <MdFavoriteBorder className="w-[50px] h-[30px] text-gray-500 cursor-pointer hover:text-blue-500"/>

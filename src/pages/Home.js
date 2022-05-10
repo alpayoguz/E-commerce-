@@ -11,7 +11,6 @@ import { useAuth } from '../contexts/AuthContext'
 const Home = () => {
   return (
       <>
-         <Announcement/>
          <Navbar/>
          <Slider/>
          <Categories/>
