@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.fixed-nav{
+    position: fixed;
+    top: 0;
+    /* left: 51.5px;
+    right: 51.5px; */
+    z-index: 50;
+    box-shadow: 0 5px  rgba(0, 0, 0, 0.05);
+    background: rgba(255,255,255, 1);
+}

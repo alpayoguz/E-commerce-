@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../css/App.css";
 import { useAuth } from "../contexts/AuthContext";
 import { BiLogOut } from "react-icons/bi";
@@ -10,6 +10,7 @@ const Navbar = () => {
   const [error, setError] = useState("");
   let currentUserEmail = currentUser ? currentUser.email : "";
   const {cartLength} = useCart();
+  const navbar = useRef();
 
   async function handleLogout() {
     setError("");
@@ -20,13 +21,32 @@ const Navbar = () => {
       setError("Logout failed!");
     }
   }
+  
+  
+ 
+  function fixNav(){
+    const topOfNav = navbar.current.offsetTop
+    console.log( "nav", topOfNav);
+    console.log( "scroll", window.scrollY);
+
+     if( (window.scrollY  - 10) > topOfNav){
+       navbar.current.classList.add("fixed-nav")
+     }else{
+      navbar.current.classList.remove("fixed-nav")
+
+     }
+    }
+
+  window.addEventListener("scroll", ()=>{
+    fixNav();
+  });
 
   return (
     <>
-      <nav className="flex container lg mx-auto justify-between py-3 items-start border-b">
+      <nav ref={navbar}   className="navbar flex w-full  lg mx-auto justify-between py-3 px-5 items-center border-b top:0 position:sticky ">
         <div>
           <Link to="/">
-            <h3 className="text-4xl font-medium font-mono">SHOPSELF</h3>
+            <h3 className="text-xl font-medium font-mono lg:text-4xl ">SHOPSELF</h3>
           </Link>
         </div>
         <div>
@@ -72,12 +92,12 @@ const Navbar = () => {
               </ul>
             ) : (
               <>
-                <li className="px-2 cursor-pointer">Register</li>
+                <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">Register</li>
                 <Link to="/signin">
-                  <li className="px-2 cursor-pointer">Sign In</li>
+                  <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">Sign In</li>
                 </Link>
                 <Link to="/cart">
-                  <li className="px-2 cursor-pointer">
+                  <li className="px-[4px] lg:px-[1rem] cursor-pointer  scale-[95%]  hover:scale-[100%]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
@@ -99,7 +119,7 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-      </nav>
+      </nav>     
     </>
   );
 };

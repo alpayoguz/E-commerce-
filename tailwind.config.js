@@ -3,6 +3,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    // screens:{
+    //   "smst" : "360px"
+    // },
     extend: {
       colors: {
         'banner-pink': '#ffa6b6',

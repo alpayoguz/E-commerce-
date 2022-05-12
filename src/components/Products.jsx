@@ -48,9 +48,9 @@ const Products = ({productsData}) => {
               <div className='flex flex-wrap'>
                 {productsData.length > 0 ?  productsData.map((item)=>{
                     return(
-                        <>
-                          <Product item={item}/>   
-                        </>
+                        
+                          <Product key={item.id} item={item}/>   
+                        
                     )
                 }) : <p>No item found</p>}
 
