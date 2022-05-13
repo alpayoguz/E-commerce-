@@ -26,8 +26,7 @@ const Navbar = () => {
  
   function fixNav(){
     const topOfNav = navbar.current.offsetTop
-    console.log( "nav", topOfNav);
-    console.log( "scroll", window.scrollY);
+   
 
      if( (window.scrollY  - 10) > topOfNav){
        navbar.current.classList.add("fixed-nav")
@@ -43,10 +42,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav ref={navbar}   className="navbar flex w-full  lg mx-auto justify-between py-3 px-5 items-center border-b top:0 position:sticky ">
+      <nav ref={navbar}   className="flex items-center justify-between w-full px-5 py-3 mx-auto border-b navbar lg top:0 position:sticky ">
         <div>
           <Link to="/">
-            <h3 className="text-xl font-medium font-mono lg:text-4xl ">SHOPSELF</h3>
+            <h3 className="font-mono text-xl font-medium lg:text-4xl ">SHOPSELF</h3>
           </Link>
         </div>
         <div>
@@ -74,7 +73,7 @@ const Navbar = () => {
                   <li className="px-2 cursor-pointer scale-[99%] hover:scale-[110%] flex">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -100,7 +99,7 @@ const Navbar = () => {
                   <li className="px-[4px] lg:px-[1rem] cursor-pointer  scale-[95%]  hover:scale-[100%]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="w-6 h-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"

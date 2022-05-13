@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp'
 import Cart from './pages/Cart'
 
 
+
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
           <Route path='/productlist' element={<ProductList/>}/>
           <Route path='products/:id' element={<Product/>}/>
           <Route path='/cart' element={<Cart/>}/>
+
         </Routes>
     </BrowserRouter>
     

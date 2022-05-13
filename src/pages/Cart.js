@@ -11,6 +11,23 @@ import CartSignIn from "../components/CartSignIn";
 
 const Cart = () => {
   const {currentUser} = useAuth();
+  const  {cartItems, setCartItems} = useCart();
+
+  useEffect(()=>{
+    setCartItems(JSON.parse(localStorage.getItem("cartItems")))
+  }, [])
+ 
+  useEffect(()=>{
+    if(localStorage.getItem("cartItems") !== null && cartItems > 0){
+      
+    }else{
+      localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    }
+   
+    
+  },[cartItems])
+
+
 
 
 
