@@ -91,7 +91,10 @@ const Navbar = () => {
               </ul>
             ) : (
               <>
-                <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">Register</li>
+                <Link to="/signup">
+                    <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">Register</li>
+                </Link>
+             
                 <Link to="/signin">
                   <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">Sign In</li>
                 </Link>

@@ -16,17 +16,17 @@ const Cart = () => {
   useEffect(()=>{
     setCartItems(JSON.parse(localStorage.getItem("cartItems")))
   }, [])
- 
+  
   useEffect(()=>{
-    if(localStorage.getItem("cartItems") !== null && cartItems > 0){
+    if(cartItems.length > 0){
+      localStorage.setItem("cartItems", JSON.stringify(cartItems))
       
     }else{
-      localStorage.setItem("cartItems", JSON.stringify(cartItems))
+      localStorage.setItem("cartItems", JSON.stringify([]))
     }
    
     
   },[cartItems])
-
 
 
 

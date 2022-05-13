@@ -23,13 +23,14 @@ export const CartProvider = ({children}) => {
     function onAdd(product, event)
     {
         if(currentUser){
-            const exist = cartItems.find(x  => x.id === product.id)
+            const exist = cartItems?.find(x  => x.id === product.id)
             if(exist){
-                setCartItems(cartItems.map(x => x.id === exist.id ? {...exist, qty:exist.qty +1} : x))
-                console.log(cartItems)
+                setCartItems(cartItems?.map(x => x.id === exist.id ? {...exist, qty:exist.qty +1} : x))
+                
 
               
             }else{
+              
                 setCartItems(prevVal => [...prevVal, {...product, qty:1}] )
                
             }
