@@ -26,8 +26,6 @@ const Navbar = () => {
  
   function fixNav(){
     const topOfNav = navbar.current.offsetTop
-   
-
      if( (window.scrollY  - 10) > topOfNav){
        navbar.current.classList.add("fixed-nav")
      }else{

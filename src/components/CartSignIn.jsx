@@ -4,6 +4,7 @@ import { BsFillBasketFill } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
+import { useAuth } from "../contexts/AuthContext";
 
 const CartSignIn = () => {
   const {
@@ -16,11 +17,15 @@ const CartSignIn = () => {
     removeCompletely,
     shippingPrice,
   } = useCart();
+  const {currentUser} = useAuth();
+  const currentUserEmail = currentUser ? currentUser.email : ""
   const totalCartProductCount = cartItems?.reduce((a, b) => a + b.qty, 0);
 
   function completePurchase(){
     setCartItems([])
-    swal("Thank you!", "You successfully purchased", "success");
+    swal(`Thank you! ${currentUserEmail?.slice(
+      0,
+      currentUserEmail?.indexOf("@"))}`, "You successfully purchased", "success");
   }
 
   return cartItems?.length > 0 ? (

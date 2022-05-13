@@ -1,18 +1,40 @@
-import React from "react";
-import Announcement from "../components/Announcement";
+import React , {useEffect} from "react";
 import Navbar from "../components/Navbar";
 import { BsCart2 } from "react-icons/bs";
-import { MdFavoriteBorder } from "react-icons/md";
 import { useParams } from "react-router";
 import { useContext } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { useCart } from "../contexts/CartContext";
+import swal from "sweetalert";
 
 const Product = () => {
   const { id } = useParams();
   const { popularProducts } = useContext(ProductContext);
   const product = popularProducts.find((product) => product.id === id);
-  const { onAdd } = useCart();
+  const { cartItems, setCartItems,onAdd } = useCart();
+  
+  function purchaseSingleItem() {
+    swal({
+      title: "Good job!",
+      text: `${product.productName} successfully purchased`,
+      icon: "success",
+    });
+   
+  }
+  useEffect(()=>{
+    setCartItems(JSON.parse(localStorage.getItem("cartItems")))
+  }, [])
+  
+  useEffect(()=>{
+    if(cartItems?.length > 0){
+      localStorage.setItem("cartItems", JSON.stringify(cartItems))
+      
+    }else{
+      localStorage.setItem("cartItems", JSON.stringify([]))
+    }
+   
+    
+  },[cartItems])
   return (
     <>
       <div className="flex flex-col h-[60vh] justify-between">
@@ -30,10 +52,10 @@ const Product = () => {
               {product.name}
             </h3>
             <div className="product__inf mb-[6rem]">
-              <p className="product__price text-xl font-medium">
+              <p className="text-xl font-medium product__price">
                 {product.price}
               </p>
-              <div className="product__filters flex">
+              <div className="flex product__filters">
                 <div className="filter__color">
                   <label htmlFor="color"></label>
                   <select
@@ -64,14 +86,15 @@ const Product = () => {
                 </div>
               </div>
             </div>
-            <div className="product__buttons flex w-full">
-              <button className="product__buy w-full h-[40px] border hover:text-blue-500 hover:border-blue-500 rounded-md ">
+            <div className="flex w-full product__buttons">
+              <button onClick={() => {purchaseSingleItem()}} className="product__buy w-full h-[40px] border hover:text-blue-500 hover:border-blue-500 rounded-md ">
                 Buy
               </button>
               <div className="product__cart">
                 <BsCart2
                   onClick={() => {
                     onAdd(product);
+                    console.log(product)
                   }}
                   className="w-[50px] h-[30px] text-gray-500 cursor-pointer hover:text-blue-500"
                 />
