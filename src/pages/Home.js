@@ -21,7 +21,7 @@ const Home = () => {
   }, [])
   
   useEffect(()=>{
-    if(cartItems.length > 0){
+    if(cartItems?.length > 0){
       localStorage.setItem("cartItems", JSON.stringify(cartItems))
       
     }else{
