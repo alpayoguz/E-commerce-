@@ -43,9 +43,9 @@ const Products = ({productsData}) => {
 
   return (
       <>
-          <div className='products-container flex flex-col w-[90vw] h-[80vh] p-10 mx-auto'>
-              <h1 className='text-3xl mb-4'>POPULARS</h1>
-              <div className='flex flex-wrap'>
+          <div className='products-container flex flex-col w-[90vw] h-[50vh] p-10 mx-auto'>
+              <h1 className='mb-4 text-3xl'>POPULARS</h1>
+              <div className='flex overflow-x-auto overflow-y-hidden'>
                 {productsData.length > 0 ?  productsData.map((item)=>{
                     return(
                         
