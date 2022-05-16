@@ -17,15 +17,20 @@ const CartSignIn = () => {
     removeCompletely,
     shippingPrice,
   } = useCart();
-  const {currentUser} = useAuth();
-  const currentUserEmail = currentUser ? currentUser.email : ""
+  const { currentUser } = useAuth();
+  const currentUserEmail = currentUser ? currentUser.email : "";
   const totalCartProductCount = cartItems?.reduce((a, b) => a + b.qty, 0);
 
-  function completePurchase(){
-    setCartItems([])
-    swal(`Thank you! ${currentUserEmail?.slice(
-      0,
-      currentUserEmail?.indexOf("@"))}`, "You successfully purchased", "success");
+  function completePurchase() {
+    setCartItems([]);
+    swal(
+      `Thank you! ${currentUserEmail?.slice(
+        0,
+        currentUserEmail?.indexOf("@")
+      )}`,
+      "You successfully purchased",
+      "success"
+    );
   }
 
   return cartItems?.length > 0 ? (
@@ -116,7 +121,12 @@ const CartSignIn = () => {
           </ul>
         </div>
         <div className="w-[90%] mx-auto my-5 payment__button h-[50px] ">
-              <button onClick={completePurchase} className="w-full h-full text-white bg-blue-500 border-2 rounded-md hover:opacity-75">Make the payment</button>
+          <button
+            onClick={completePurchase}
+            className="w-full h-full text-white bg-blue-500 border-2 rounded-md hover:opacity-75"
+          >
+            Make the payment
+          </button>
         </div>
       </div>
     </div>

@@ -39,10 +39,10 @@ const Product = () => {
     <>
       <div className="flex flex-col h-[60vh] justify-between">
         <Navbar />
-        <div className="flex justify-center  product    w-[40vw] h-[40vh] mx-auto bg-[#f8fcfe] rounded-md   ">
-          <div className="product__left h-[80%] py-5 ">
+        <div className="flex justify-center  product    w-[min:calc(100%-1rem, 900px)] h-[min:calc(100vh-5rem, 400px )] mx-auto bg-[#f8fcfe] rounded-md   ">
+          <div className="py-5 product__left ">
             <img
-              className="h-[80%] max-h-[200px] w-[400px] object-contain"
+              className="h-[80%] max-h-[400px] w-[400px] object-contain"
               src={`/${product.img}`}
               alt=""
             />
@@ -53,7 +53,7 @@ const Product = () => {
             </h3>
             <div className="product__inf mb-[6rem]">
               <p className="text-xl font-medium product__price">
-                {product.price}
+                {product.price}$
               </p>
               <div className="flex product__filters">
                 <div className="filter__color">

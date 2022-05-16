@@ -9,7 +9,7 @@ const Navbar = () => {
   const { currentUser, logout } = useAuth();
   const [error, setError] = useState("");
   let currentUserEmail = currentUser ? currentUser.email : "";
-  const {cartLength} = useCart();
+  const { cartLength } = useCart();
   const navbar = useRef();
 
   async function handleLogout() {
@@ -21,29 +21,31 @@ const Navbar = () => {
       setError("Logout failed!");
     }
   }
-  
-  
- 
-  function fixNav(){
-    const topOfNav = navbar.current.offsetTop
-     if( (window.scrollY  - 10) > topOfNav){
-       navbar.current.classList.add("fixed-nav")
-     }else{
-      navbar.current.classList.remove("fixed-nav")
 
-     }
+  function fixNav() {
+    const topOfNav = navbar.current.offsetTop;
+    if (window.scrollY - 10 > topOfNav) {
+      navbar.current.classList.add("fixed-nav");
+    } else {
+      navbar.current.classList.remove("fixed-nav");
     }
+  }
 
-  window.addEventListener("scroll", ()=>{
+  window.addEventListener("scroll", () => {
     fixNav();
   });
 
   return (
     <>
-      <nav ref={navbar}   className="flex items-center justify-between w-full px-5 py-3 mx-auto border-b navbar lg top:0 position:sticky ">
+      <nav
+        ref={navbar}
+        className="flex items-center justify-between w-full px-5 py-3 mx-auto border-b navbar lg top:0 position:sticky "
+      >
         <div>
           <Link to="/">
-            <h3 className="font-mono text-xl font-medium lg:text-4xl ">SHOPSELF</h3>
+            <h3 className="font-mono text-xl font-medium lg:text-4xl ">
+              SHOPSELF
+            </h3>
           </Link>
         </div>
         <div>
@@ -83,18 +85,28 @@ const Navbar = () => {
                         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                       />
                     </svg>
-                   {cartLength > 0 ?  <span className="text-[12px] w-[16px] h-[20px] rounded-[50%] text-center text-white bg-blue-400">{cartLength}</span> : ""  } 
+                    {cartLength > 0 ? (
+                      <span className="text-[12px] w-[16px] h-[20px] rounded-[50%] text-center text-white bg-blue-400">
+                        {cartLength}
+                      </span>
+                    ) : (
+                      ""
+                    )}
                   </li>
                 </Link>
               </ul>
             ) : (
               <>
                 <Link to="/signup">
-                    <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">Register</li>
+                  <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">
+                    Register
+                  </li>
                 </Link>
-             
+
                 <Link to="/signin">
-                  <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">Sign In</li>
+                  <li className="px-[4px] lg:px-[1rem] cursor-pointer tracking-[1px] font-medium scale-[98%]  hover:scale-[100%] hover:tracking-[1.5px]  duration-200 ease-in-out">
+                    Sign In
+                  </li>
                 </Link>
                 <Link to="/cart">
                   <li className="px-[4px] lg:px-[1rem] cursor-pointer  scale-[95%]  hover:scale-[100%]">
@@ -112,14 +124,13 @@ const Navbar = () => {
                         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                       />
                     </svg>
-                    
                   </li>
                 </Link>
               </>
             )}
           </ul>
         </div>
-      </nav>     
+      </nav>
     </>
   );
 };
